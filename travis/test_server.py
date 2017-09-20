@@ -248,7 +248,9 @@ def setup_server(db, odoo_unittest, tested_addons, server_path, script_name,
         try:
             subprocess.check_call(cmd_odoo)
         except subprocess.CalledProcessError as e:
+            print(cmd_odoo)
             return e.returncode
+    print("before return")
     return 0
 
 

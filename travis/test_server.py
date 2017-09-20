@@ -236,7 +236,6 @@ def setup_server(db, odoo_unittest, tested_addons, server_path, script_name,
         subprocess.check_call(["createdb", db])
     except subprocess.CalledProcessError:
         print("Using previous openerp_template database.")
-    print("before else")
     else:
         # unbuffer keeps output colors
         print("In else statement")

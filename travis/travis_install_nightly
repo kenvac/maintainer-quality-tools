@@ -76,11 +76,11 @@ if [ -z "${REPO_CACHED}"  ]; then
     export ODOO_URL="https://github.com/$REMOTE/$REPO_NAME/archive/$BRANCH.tar.gz"
     echo "Installing Odoo $ODOO_URL"
     wget -nv -O odoo.tar.gz $ODOO_URL
-    tar -xf odoo.tar.gz -C ${HOME}
-    echo ${HOME}
+    tar -xfv odoo.tar.gz -C ${HOME}
     echo $ODOO_PATH
     echo `ls ${HOME}`
     echo `ls $ODOO_PATH`
+    echo $REPO_NAME
 else
     echo "Using Odoo from cache ${REPO_CACHED}"
     chown `(whoami)`:`(id -gn)` -R ${REPO_CACHED}

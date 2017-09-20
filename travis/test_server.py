@@ -232,11 +232,14 @@ def setup_server(db, odoo_unittest, tested_addons, server_path, script_name,
     print(script_name)
     print(db)
     try:
+        print("create db")
         subprocess.check_call(["createdb", db])
     except subprocess.CalledProcessError:
         print("Using previous openerp_template database.")
+    print("before else")
     else:
         # unbuffer keeps output colors
+        print("In else statement")
         cmd_odoo = ["unbuffer"] if unbuffer else []
         cmd_odoo += ["%s/%s" % (server_path, script_name),
                      "-d", db,

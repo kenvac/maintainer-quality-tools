@@ -228,6 +228,9 @@ def setup_server(db, odoo_unittest, tested_addons, server_path, script_name,
     if server_options is None:
         server_options = []
     print("\nCreating instance:")
+    print(server_path)
+    print(script_name)
+    print(db)
     try:
         subprocess.check_call(["createdb", db])
     except subprocess.CalledProcessError:

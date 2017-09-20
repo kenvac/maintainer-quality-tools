@@ -234,6 +234,7 @@ def setup_server(db, odoo_unittest, tested_addons, server_path, script_name,
     try:
         print("create db")
         subprocess.check_call(["createdb", db])
+        print("after subprocess")
     except subprocess.CalledProcessError:
         print("Using previous openerp_template database.")
     else:
@@ -373,6 +374,7 @@ def main(argv=None):
                  script_name, addons_path, install_options, preinstall_modules,
                  unbuffer, server_options)
 
+    print("after setupserver")
     # Running tests
     cmd_odoo_test = ["coverage", "run",
                      "%s/%s" % (server_path, script_name),

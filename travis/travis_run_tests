@@ -33,6 +33,7 @@ def main(test_list):
                 print(e)
                 res = 1
         else:
+            print(test_w_args)
             res = subprocess.call(test_w_args)
         results.append(res)
 

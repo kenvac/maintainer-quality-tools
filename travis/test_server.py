@@ -226,6 +226,8 @@ def setup_server(db, odoo_unittest, tested_addons, server_path, script_name,
     pgUser = os.environ.get("POSTGRES_USER", "")
     pgHost = os.environ.get("POSTGRES_HOST", "")
     pgPass = os.environ.get("POSTGRES_PASSWORD", "")
+
+    print(pgUser, pgHost, pgPass)
     if preinstall_modules is None:
         preinstall_modules = ['base']
     if server_options is None:
@@ -249,8 +251,8 @@ def setup_server(db, odoo_unittest, tested_addons, server_path, script_name,
                      "-d", db,
                      "--log-level=info",
                      "--stop-after-init",
-                     "-r ", pgUser,
-                     "-w ", pgPass,
+                     "-r", pgUser,
+                     "-w", pgPass,
                      "--db_host=", pgHost,
                      "--init", ','.join(preinstall_modules),
                      ] + install_options + server_options

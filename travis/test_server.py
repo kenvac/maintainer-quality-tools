@@ -223,6 +223,8 @@ def setup_server(db, odoo_unittest, tested_addons, server_path, script_name,
     :param install_options: Install options (travis parameter)
     :param server_options: (list) Add these flags to the Odoo server init
     """
+    pgUser = os.environ.get("POSTGRES_USER", "")
+    pgHost = os.environ.get("POSTGRES_HOST", "")
     if preinstall_modules is None:
         preinstall_modules = ['base']
     if server_options is None:
@@ -233,7 +235,8 @@ def setup_server(db, odoo_unittest, tested_addons, server_path, script_name,
     print(db)
     try:
         print("create db")
-        subprocess.check_call(["createdb", db])
+        createDB = "createdb -h " + pgHost + " -U " + pgUser
+        subprocess.check_call([createDB, db])
         print("after subprocess")
     except subprocess.CalledProcessError:
         print("Using previous openerp_template database.")

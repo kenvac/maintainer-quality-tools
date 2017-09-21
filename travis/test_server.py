@@ -247,7 +247,7 @@ def setup_server(db, odoo_unittest, tested_addons, server_path, script_name,
         # unbuffer keeps output colors
         print("In else statement")
         #cmd_odoo = ["unbuffer"] if unbuffer else []
-        cmd_odoo += ["%s/%s" % (server_path, script_name),
+        cmd_odoo = ["%s/%s" % (server_path, script_name),
                      "-d", db,
                      "--log-level=info",
                      "--stop-after-init",
